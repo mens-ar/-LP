@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メンズ脱毛 無料体験モニター募集｜AR SALON</title>
+  <meta name="description" content="今だけ！メンズ脱毛の無料体験モニターを限定募集中。清潔感・自信・時間の節約を手に入れよう。">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'Georgia', serif;
+      background: #0a0a0a;
+      color: #e8e0d0;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ===== VARIABLES ===== */
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8cb7a;
+      --gold-dark: #9a7a2e;
+      --black: #0a0a0a;
+      --black-mid: #111111;
+      --black-soft: #1a1a1a;
+      --black-card: #141414;
+      --text: #e8e0d0;
+      --text-muted: #9a9080;
+      --border: rgba(201,168,76,0.25);
+    }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    .gold-text { color: var(--gold); }
+    .section-divider {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 20px auto;
+    }
+
+    /* ===== HEADER / HERO ===== */
+    header {
+      background: var(--black);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 20px;
+      text-align: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .logo {
+      font-size: 1.1rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .logo span { color: var(--text-muted); font-size: 0.75rem; display: block; letter-spacing: 0.2em; margin-top: 2px; }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%),
+        linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(201,168,76,0.04) 80px),
+        repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(201,168,76,0.04) 80px);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; padding: 100px 20px 80px; }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      padding: 6px 18px;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: clamp(2rem, 6vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--gold);
+      display: block;
+    }
+    .hero-sub {
+      font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+      color: var(--black);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 18px 48px;
+      text-decoration: none;
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 30px rgba(201,168,76,0.3);
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(201,168,76,0.5); }
+    .hero-note {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    }
+    .scroll-indicator {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--gold-dark); font-size: 0.7rem; letter-spacing: 0.2em;
+    }
+    .scroll-indicator::after {
+      content: '';
+      width: 1px; height: 50px;
+      background: linear-gradient(180deg, var(--gold-dark), transparent);
+      animation: scrollLine 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); }
+      100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+    }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: 90px 0; }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      text-align: center;
+      color: var(--text-muted);
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.95rem;
+      max-width: 580px;
+      margin: 0 auto 56px;
+    }
+
+    /* ===== PROBLEMS ===== */
+    #problems { background: var(--black-mid); }
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .problem-item {
+      background: var(--black-card);
+      padding: 36px 28px;
+      text-align: center;
+    }
+    .problem-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .problem-item p {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .problem-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    /* ===== SOLUTION ===== */
+    #solution { background: var(--black); }
+    .solution-card {
+      background: linear-gradient(135deg, var(--black-card), #1c1600);
+      border: 1px solid var(--border);
+      padding: 56px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .solution-card::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(ellipse 40% 30% at 50% 0%, rgba(201,168,76,0.06), transparent);
+      pointer-events: none;
+    }
+    .solution-card .big-text {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.5;
+      letter-spacing: 0.06em;
+      margin-bottom: 24px;
+    }
+    .solution-card .big-text span { color: var(--gold); }
+    .solution-card p {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ===== BENEFITS ===== */
+    #benefits { background: var(--black-soft); }
+    .benefits-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .benefit-card {
+      background: var(--black-card);
+      border: 1px solid var(--border);
+      padding: 36px 28px;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .benefit-card:hover { border-color: var(--gold); }
+    .benefit-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(201,168,76,0.15);
+      line-height: 1;
+      margin-bottom: 12px;
+      font-family: 'Georgia', serif;
+    }
+    .benefit-card h3 {
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      letter-spacing: 0.06em;
+      font-weight: 400;
+    }
+    .benefit-card p {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    #how { background: var(--black); }
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0;
+      width: 56px; height: 56px;
+      border: 1px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-family: 'Georgia', serif;
+    }
+    .step-body h3 {
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+    .step-body p {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== VOICES ===== */
+    #voices { background: var(--black-mid); }
+    .voices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .voice-card {
+      background: var(--black-card);
+      border-left: 3px solid var(--gold);
+      padding: 28px 24px;
+    }
+    .voice-card .stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 12px; }
+    .voice-card p {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .voice-card .voice-author {
+      font-size: 0.78rem;
+      color: var(--gold-dark);
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== APPLY FORM ===== */
+    #apply {
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.06), transparent),
+        var(--black);
+      padding: 90px 0 120px;
+    }
+    #apply h2 {
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      color: var(--gold-light);
+    }
+    .apply-note {
+      text-align: center;
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+    }
+    #enqueteForm {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--black-card);
+      border: 1px solid var(--border);
+      padding: 48px 44px;
+    }
+    .field {
+      margin-bottom: 32px;
+    }
+    .field label {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--gold-light);
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    }
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: #0d0d0d;
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--text);
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      outline: none;
+      transition: border-color 0.25s;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--gold);
+      background-color: #0f0e0a;
+    }
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+    .field select option { background: #111; }
+
+    #submitBtn {
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+      color: var(--black);
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+      box-shadow: 0 4px 30px rgba(201,168,76,0.25);
+      margin-top: 8px;
+    }
+    #submitBtn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(201,168,76,0.45);
+    }
+    #submitBtn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* ===== TOAST / STATUS ===== */
+    #formStatus {
+      display: none;
+      margin-top: 24px;
+      padding: 16px 20px;
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.9rem;
+      text-align: center;
+      border-radius: 0;
+    }
+    #formStatus.success {
+      display: block;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+    }
+    #formStatus.error {
+      display: block;
+      background: rgba(180,50,50,0.12);
+      border: 1px solid #8b3a3a;
+      color: #e08080;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    footer .footer-logo {
+      font-size: 1rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    footer p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+    .footer-links { margin: 16px 0; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+
+    /* ===== FLOATING CTA ===== */
+    .floating-cta {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      z-index: 200;
+      display: none;
+    }
+    .floating-cta a {
+      display: block;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--black);
+      padding: 14px 24px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.4);
+      transition: transform 0.2s;
+    }
+    .floating-cta a:hover { transform: translateY(-2px); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      section { padding: 64px 0; }
+      #hero { min-height: 90vh; }
+      .hero-inner { padding: 80px 20px 60px; }
+      #enqueteForm { padding: 32px 20px; }
+      .step { flex-direction: column; gap: 16px; }
+      .solution-card { padding: 40px 24px; }
+      .floating-cta { bottom: 16px; right: 16px; }
+      .floating-cta a { padding: 12px 20px; font-size: 0.8rem; }
+    }
+    @media (max-width: 480px) {
+      .problems-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      AR SALON
+      <span>Men's Premium Esthetic</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Limited Offer — Free Trial Monitor</div>
+      <h1 class="hero-title">
+        毎朝の自己処理から、<br>
+        <em>解放される日が来た。</em>
+      </h1>
+      <p class="hero-sub">
+        メンズ脱毛の無料体験モニターを、<strong>今月限定で若干名</strong>募集しています。<br>
+        アンケートに答えて、選考に応募してください。
+      </p>
+      <a href="#apply" class="hero-cta">無料選考アンケートに応募する</a>
+      <p class="hero-note">※ 完全無料 ／ 強引な勧誘は一切ありません</p>
+    </div>
+    <div class="scroll-indicator">SCROLL</div>
+  </section>
+
+  <!-- PROBLEMS -->
+  <section id="problems">
+    <div class="container">
+      <p class="section-label">Your Problems</p>
+      <h2 class="section-title">こんなお悩みありませんか？</h2>
+      <div class="section-divider"></div>
+      <div class="problems-grid">
+        <div class="problem-item">
+          <span class="problem-icon">⚔️</span>
+          <strong>カミソリ負けが辛い</strong>
+          <p>剃るたびに肌が荒れ、赤みや炎症が繰り返される。</p>
+        </div>
+        <div class="problem-item">
+          <span class="problem-icon">⏰</span>
+          <strong>毎日の処理が面倒</strong>
+          <p>シェービングに費やす時間が、毎朝ストレスになっている。</p>
+        </div>
+        <div class="problem-item">
+          <span class="problem-icon">👔</span>
+          <strong>清潔感に自信が持てない</strong>
+          <p>ムダ毛が気になって、人前での脱ぎ着を避けてしまう。</p>
+        </div>
+        <div class="problem-item">
+          <span class="problem-icon">💰</span>
+          <strong>費用が高そうで踏み出せない</strong>
+          <p>脱毛サロンに興味はあっても、価格が不安で行けていない。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section id="solution">
+    <div class="container">
+      <div class="solution-card">
+        <p class="section-label" style="margin-bottom:20px;">Our Solution</p>
+        <p class="big-text">
+          まず、<span>体験してから</span>決めてください。<br>
+          それだけでいい。
+        </p>
+        <p>
+          AR SALONは「本当に体験した人に選ばれるサロン」を目指し、
+          今回限定で無料モニターを募集します。施術の質を実際に感じてから、
+          継続するかどうかをご自身でご判断ください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section id="benefits">
+    <div class="container">
+      <p class="section-label">Why AR Salon</p>
+      <h2 class="section-title">AR SALONが選ばれる理由</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">メンズ専門だからこそ実現できる、3つのこだわり。</p>
+      <div class="benefits-list">
+        <div class="benefit-card">
+          <div class="benefit-number">01</div>
+          <h3>メンズ専門スタッフによる施術</h3>
+          <p>男性の肌質・毛質に精通した専門スタッフが担当。初めての方でも安心してお任せいただけます。</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-number">02</div>
+          <h3>痛みに配慮した最新機器</h3>
+          <p>業務用の高性能機器を使用し、痛みを最小限に抑えながら高い効果を実現します。</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-number">03</div>
+          <h3>完全個室・プライバシー保護</h3>
+          <p>他の来客と顔を合わせることのない完全個室。気兼ねなく通える環境を整えています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <p class="section-label">How it Works</p>
+      <h2 class="section-title">応募から体験までの流れ</h2>
+      <div class="section-divider"></div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>アンケートに回答して応募</h3>
+            <p>このページ下部のフォームに必要事項をご記入のうえ、ご応募ください。所要時間は約3分です。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>選考・ご連絡</h3>
+            <p>ご応募内容をもとに選考を行い、3営業日以内にメールまたはお電話でご連絡いたします。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>日程調整・ご来店</h3>
+            <p>ご都合の良い日時をお選びいただき、サロンにお越しください。完全個室でお待ちしています。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>無料体験施術</h3>
+            <p>カウンセリングから施術まで、すべて無料で体験いただけます。強引な勧誘は一切行いません。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICES -->
+  <section id="voices">
+    <div class="container">
+      <p class="section-label">Voices</p>
+      <h2 class="section-title">体験者の声</h2>
+      <div class="section-divider"></div>
+      <div class="voices-grid">
+        <div class="voice-card">
+          <div class="stars">★★★★★</div>
+          <p>「カミソリ負けが悩みでしたが、数回で肌が見違えるように変わりました。もっと早く来ればよかった。」</p>
+          <span class="voice-author">— 28歳 / 会社員</span>
+        </div>
+        <div class="voice-card">
+          <div class="stars">★★★★★</div>
+          <p>「最初は抵抗がありましたが、個室で男性スタッフに対応いただけて安心しました。痛みも想定より全然少なかったです。」</p>
+          <span class="voice-author">— 35歳 / 営業職</span>
+        </div>
+        <div class="voice-card">
+          <div class="stars">★★★★★</div>
+          <p>「毎朝のシェービングがなくなり、朝の支度時間が10分短縮されました。清潔感が上がったと友人にも言われました。」</p>
+          <span class="voice-author">— 31歳 / フリーランス</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY FORM -->
+  <section id="apply">
+    <div class="container">
+      <p class="section-label">Free Trial Application</p>
+      <h2>無料選考アンケートに応募する</h2>
+      <div class="section-divider"></div>
+      <p class="apply-note">
+        以下のアンケートにお答えいただき、選考にご応募ください。<br>
+        内容をもとに選考し、3営業日以内にご連絡いたします。
+      </p>
+
+      <form id="enqueteForm" novalidate>
+        <div class="field">
+          <label>Q1. 脱毛が完了したら、どのような変化を期待しますか？</label>
+          <select name="q1" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="時間節約">自己処理の手間をなくし、時間を節約したい</option>
+            <option value="肌改善">肌トラブルを改善し、肌を綺麗にしたい</option>
+            <option value="清潔感">清潔感を出して自分に自信を持ちたい</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Q2. 月々いくらくらいの予算であれば検討可能ですか？</label>
+          <select name="q2" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="5000-10000">5,000円〜10,000円</option>
+            <option value="10000-15000">10,000円〜15,000円</option>
+            <option value="15000over">15,000円以上</option>
+            <option value="none">今は予算をかけられない（無料のみ希望）</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Q3. 現在のムダ毛に関する具体的な悩み</label>
+          <textarea name="q3" required placeholder="例：カミソリ負けが痛くて辛い、など"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Q4. なぜ今まで脱毛を始めなかったのですか？</label>
+          <textarea name="q4" required placeholder="例：高額なイメージがあった、痛みが不安だった、など"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Q5. 本気で自分を変えたいという「意気込み」</label>
+          <textarea name="q5" required placeholder="選考の参考にさせていただきます"></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn">この内容で抽選に応募する</button>
+        <div id="formStatus"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">AR SALON</div>
+    <div class="footer-links">
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">特定商取引法に基づく表記</a>
+      <a href="mailto:beauty@ar-salon.com">お問い合わせ</a>
+    </div>
+    <p>© 2026 AR SALON All Rights Reserved.</p>
+  </footer>
+
+  <!-- FLOATING CTA -->
+  <div class="floating-cta" id="floatingCta">
+    <a href="#apply">無料で応募する ›</a>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycbzfuSDClDOyyUiBCw358hLq2YVgvo_jCZ6cfSu8UEIED5DsvzNuGJkbECRtJcLw0uQtpg/exec';
+
+    /* ----- Floating CTA visibility ----- */
+    const floatingCta = document.getElementById('floatingCta');
+    const applySection = document.getElementById('apply');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        floatingCta.style.display = entry.isIntersecting ? 'none' : 'block';
+      });
+    }, { threshold: 0.1 });
+    observer.observe(applySection);
+
+    /* ----- Form submission ----- */
+    document.getElementById('enqueteForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const btn = document.getElementById('submitBtn');
+      const status = document.getElementById('formStatus');
+
+      // Basic validation
+      const fields = form.querySelectorAll('[required]');
+      let valid = true;
+      fields.forEach(f => {
+        if (!f.value.trim()) { valid = false; f.style.borderColor = '#8b3a3a'; }
+        else { f.style.borderColor = ''; }
+      });
+      if (!valid) {
+        status.className = 'error';
+        status.textContent = '未入力の項目があります。すべてご記入のうえ再度お送りください。';
+        status.style.display = 'block';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = '送信中...';
+      status.style.display = 'none';
+
+      const payload = {
+        q1: form.q1.value,
+        q2: form.q2.value,
+        q3: form.q3.value,
+        q4: form.q4.value,
+        q5: form.q5.value,
+        submittedAt: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
+      };
+
+      try {
+        const res = await fetch(GAS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        // no-cors returns opaque response — treat as success if no error thrown
+        status.className = 'success';
+        status.textContent = 'ご応募ありがとうございます！3営業日以内にご連絡いたします。';
+        status.style.display = 'block';
+        form.reset();
+        form.querySelectorAll('select, textarea').forEach(f => f.style.borderColor = '');
+        btn.textContent = '応募が完了しました';
+
+        // Scroll to status message
+        status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      } catch (err) {
+        status.className = 'error';
+        status.textContent = '送信中にエラーが発生しました。時間をおいて再度お試しいただくか、メールにてご連絡ください。';
+        status.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'この内容で抽選に応募する';
+      }
+    });
+
+    /* ----- Input focus border color reset ----- */
+    document.querySelectorAll('select, textarea').forEach(el => {
+      el.addEventListener('input', () => { el.style.borderColor = ''; });
+    });
+  </script>
+</body>
+</html>
