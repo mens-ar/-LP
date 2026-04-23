@@ -183,9 +183,16 @@
       text-align: center;
     }
     .problem-icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
       display: block;
+      margin-bottom: 20px;
+      filter: brightness(0.85) sepia(0.15);
+      transition: filter 0.3s;
+    }
+    .problem-item:hover .problem-icon {
+      filter: brightness(1) sepia(0);
     }
     .problem-item p {
       font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
@@ -548,22 +555,22 @@
       <div class="section-divider"></div>
       <div class="problems-grid">
         <div class="problem-item">
-          <span class="problem-icon">⚔️</span>
+          <img class="problem-icon" src="images/カミソリ.png" alt="カミソリ負け">
           <strong>カミソリ負けが辛い</strong>
           <p>剃るたびに肌が荒れ、赤みや炎症が繰り返される。</p>
         </div>
         <div class="problem-item">
-          <span class="problem-icon">⏰</span>
+          <img class="problem-icon" src="images/時計.png" alt="時間の無駄">
           <strong>毎日の処理が面倒</strong>
           <p>シェービングに費やす時間が、毎朝ストレスになっている。</p>
         </div>
         <div class="problem-item">
-          <span class="problem-icon">👔</span>
+          <img class="problem-icon" src="images/男性.png" alt="清潔感">
           <strong>清潔感に自信が持てない</strong>
           <p>ムダ毛が気になって、人前での脱ぎ着を避けてしまう。</p>
         </div>
         <div class="problem-item">
-          <span class="problem-icon">💰</span>
+          <img class="problem-icon" src="images/お金.png" alt="費用">
           <strong>費用が高そうで踏み出せない</strong>
           <p>脱毛サロンに興味はあっても、価格が不安で行けていない。</p>
         </div>
