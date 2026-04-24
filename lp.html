@@ -876,8 +876,10 @@
 
   <!-- JAVASCRIPT -->
   <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
-    history.scrollRestoration = 'manual';
+    document.addEventListener('DOMContentLoaded', function() { window.scrollTo(0, 0); });
+    window.addEventListener('load', function() { window.scrollTo(0, 0); });
 
     const GAS_URL = 'https://script.google.com/macros/s/AKfycbzfuSDClDOyyUiBCw358hLq2YVgvo_jCZ6cfSu8UEIED5DsvzNuGJkbECRtJcLw0uQtpg/exec';
 
