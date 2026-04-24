@@ -64,29 +64,23 @@
       text-align: center;
       overflow: hidden;
       background:
-        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%),
-        linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+        linear-gradient(180deg,
+          rgba(10,10,10,0.82) 0%,
+          rgba(10,10,10,0.55) 40%,
+          rgba(10,10,10,0.75) 75%,
+          rgba(10,10,10,0.97) 100%),
+        url('images/mens1.png') center center / cover no-repeat;
     }
     #hero::before {
       content: '';
       position: absolute; inset: 0;
       background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(201,168,76,0.04) 80px),
-        repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(201,168,76,0.04) 80px);
+        repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(201,168,76,0.03) 80px),
+        repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(201,168,76,0.03) 80px);
       pointer-events: none;
     }
     .hero-inner { position: relative; z-index: 1; padding: 100px 20px 80px; }
-    .hero-img {
-      width: 100%;
-      max-width: 420px;
-      height: 280px;
-      object-fit: cover;
-      display: block;
-      margin: 0 auto 32px;
-      border: 1px solid var(--border);
-      filter: brightness(0.9);
-    }
-    .hero-free-note {
+.hero-free-note {
       display: inline-block;
       background: rgba(201,168,76,0.1);
       border: 1px solid var(--gold);
@@ -630,8 +624,7 @@
         毎朝の自己処理から、<br>
         <em>解放される日が来た。</em>
       </h1>
-      <img class="hero-img" src="images/mens1.png" alt="メンズ脱毛イメージ">
-      <p class="hero-free-note">・ヒゲまるごと、VIO、全身全ての脱毛が無料</p>
+<p class="hero-free-note">・ヒゲまるごと、VIO、全身全ての脱毛が無料</p>
       <p class="hero-sub">
         メンズ脱毛の無料体験モニターを、<strong>30名限定で募集</strong>しています。<br>
         アンケートに答えて、選考に応募してください。
