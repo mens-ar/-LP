@@ -76,6 +76,30 @@
       pointer-events: none;
     }
     .hero-inner { position: relative; z-index: 1; padding: 100px 20px 80px; }
+    .hero-img {
+      width: 100%;
+      max-width: 420px;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 32px;
+      border: 1px solid var(--border);
+      filter: brightness(0.9);
+    }
+    .hero-free-note {
+      display: inline-block;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      letter-spacing: 0.08em;
+      padding: 10px 24px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 640px) {
+      .hero-img { height: 200px; }
+    }
     .hero-badge {
       display: inline-block;
       border: 1px solid var(--gold);
@@ -606,6 +630,8 @@
         毎朝の自己処理から、<br>
         <em>解放される日が来た。</em>
       </h1>
+      <img class="hero-img" src="images/mens1.png" alt="メンズ脱毛イメージ">
+      <p class="hero-free-note">・ヒゲまるごと、VIO、全身全ての脱毛が無料</p>
       <p class="hero-sub">
         メンズ脱毛の無料体験モニターを、<strong>30名限定で募集</strong>しています。<br>
         アンケートに答えて、選考に応募してください。
