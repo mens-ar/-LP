@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>メンズ脱毛 無料体験モニター募集｜AR SALON</title>
-  <meta name="description" content="今だけ！メンズ脱毛の無料体験モニターを限定募集中。清潔感・自信・時間の節約を手に入れよう。">
+  <title>メンズ脱毛 無料体験モニター募集｜男脱毛 メンズアール</title>
+  <meta name="description" content="30名限定！メンズ脱毛の無料体験モニターを限定募集中。清潔感・自信・時間の節約を手に入れよう。">
   <style>
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -410,6 +410,41 @@
       line-height: 1.6;
     }
     .field select option { background: #111; }
+    .field input[type="text"],
+    .field input[type="tel"],
+    .field input[type="email"] {
+      width: 100%;
+      background: #0d0d0d;
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--text);
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      outline: none;
+      transition: border-color 0.25s;
+      border-radius: 0;
+    }
+    .field input[type="text"]:focus,
+    .field input[type="tel"]:focus,
+    .field input[type="email"]:focus {
+      border-color: var(--gold);
+      background-color: #0f0e0a;
+    }
+    .field input::placeholder { color: var(--text-muted); }
+    .personal-info-block {
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+      margin-bottom: 32px;
+      background: rgba(201,168,76,0.03);
+    }
+    .personal-info-block .block-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    }
 
     #submitBtn {
       width: 100%;
@@ -524,21 +559,22 @@
   <!-- HEADER -->
   <header>
     <div class="logo">
-      AR SALON
-      <span>Men's Premium Esthetic</span>
+      男脱毛 メンズアール
+      <span>otokodatumou men's【a:r】</span>
     </div>
   </header>
 
   <!-- HERO -->
   <section id="hero">
     <div class="hero-inner">
-      <div class="hero-badge">Limited Offer — Free Trial Monitor</div>
+      <div class="hero-badge">30名限定　無料脱毛体験モニター募集
+      </div>
       <h1 class="hero-title">
         毎朝の自己処理から、<br>
         <em>解放される日が来た。</em>
       </h1>
       <p class="hero-sub">
-        メンズ脱毛の無料体験モニターを、<strong>今月限定で若干名</strong>募集しています。<br>
+        メンズ脱毛の無料体験モニターを、<strong>30名限定で募集</strong>しています。<br>
         アンケートに答えて、選考に応募してください。
       </p>
       <a href="#apply" class="hero-cta">無料選考アンケートに応募する</a>
@@ -584,12 +620,11 @@
       <div class="solution-card">
         <p class="section-label" style="margin-bottom:20px;">Our Solution</p>
         <p class="big-text">
-          まず、<span>体験してから</span>決めてください。<br>
-          それだけでいい。
+          まず、<span>体験してから</span>お決めください。<br>
         </p>
         <p>
-          AR SALONは「本当に体験した人に選ばれるサロン」を目指し、
-          今回限定で無料モニターを募集します。施術の質を実際に感じてから、
+          男脱毛 メンズアールは「本当に体験した人に選ばれるサロン」を目指し、
+          今回30名限定で無料モニターを募集します。施術の質を実際に感じてから、
           継続するかどうかをご自身でご判断ください。
         </p>
       </div>
@@ -599,8 +634,8 @@
   <!-- BENEFITS -->
   <section id="benefits">
     <div class="container">
-      <p class="section-label">Why AR Salon</p>
-      <h2 class="section-title">AR SALONが選ばれる理由</h2>
+      <p class="section-label">Why men's【a:r】</p>
+      <h2 class="section-title">男脱毛 メンズアールが選ばれる理由</h2>
       <div class="section-divider"></div>
       <p class="section-desc">メンズ専門だからこそ実現できる、3つのこだわり。</p>
       <div class="benefits-list">
@@ -612,7 +647,7 @@
         <div class="benefit-card">
           <div class="benefit-number">02</div>
           <h3>痛みに配慮した最新機器</h3>
-          <p>業務用の高性能機器を使用し、痛みを最小限に抑えながら高い効果を実現します。</p>
+          <p>業務用の高性能機器(HHR方式)を使用し、痛みを最小限に抑えながら高い効果を実現します。</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-number">03</div>
@@ -641,7 +676,7 @@
           <div class="step-num">2</div>
           <div class="step-body">
             <h3>選考・ご連絡</h3>
-            <p>ご応募内容をもとに選考を行い、3営業日以内にメールまたはお電話でご連絡いたします。</p>
+            <p>ご応募内容をもとに選考を行い、3営業日以内にLINE、メールまたはお電話でご連絡いたします。</p>
           </div>
         </div>
         <div class="step">
@@ -671,18 +706,23 @@
       <div class="voices-grid">
         <div class="voice-card">
           <div class="stars">★★★★★</div>
-          <p>「カミソリ負けが悩みでしたが、数回で肌が見違えるように変わりました。もっと早く来ればよかった。」</p>
-          <span class="voice-author">— 28歳 / 会社員</span>
+          <p>職場の先輩に勧められて契約しましたが、美容脱毛とは思えないほど効果がすごいです。またスタッフの方も接客対応がよく、施術中も楽しいですし、男性スタッフのみなので恥ずかしくなく通えます。脱毛考えてる人いましたら是非行って欲しいです。</p>
+          <span class="voice-author">— 20代 / 織田信長 さま</span>
         </div>
         <div class="voice-card">
           <div class="stars">★★★★★</div>
-          <p>「最初は抵抗がありましたが、個室で男性スタッフに対応いただけて安心しました。痛みも想定より全然少なかったです。」</p>
-          <span class="voice-author">— 35歳 / 営業職</span>
+          <p>中学生ですが、お店の斉藤さんがお話がとても楽しく、また誠実で安心して、楽しく施術できました！</p>
+          <span class="voice-author">— 10代 / おむすび さま</span>
         </div>
         <div class="voice-card">
           <div class="stars">★★★★★</div>
-          <p>「毎朝のシェービングがなくなり、朝の支度時間が10分短縮されました。清潔感が上がったと友人にも言われました。」</p>
-          <span class="voice-author">— 31歳 / フリーランス</span>
+          <p>1年プランを利用させていただきました。
+最後まで楽しく脱毛をする事が出来ました。
+全ては店長のお陰です。
+コミュ力おばけなので毎度お話が面白いです笑
+肝心の脱毛効果も全身かなり薄くなり非常に満足しています。
+料金もお手頃価格なのでおすすめです！</p>
+          <span class="voice-author">— 30代 / RR さま</span>
         </div>
       </div>
     </div>
@@ -715,8 +755,8 @@
           <select name="q2" required>
             <option value="" disabled selected>選択してください</option>
             <option value="5000-10000">5,000円〜10,000円</option>
-            <option value="10000-15000">10,000円〜15,000円</option>
-            <option value="15000over">15,000円以上</option>
+            <option value="10000-20000">10,000円〜20,000円</option>
+            <option value="20000over">20,000円以上</option>
             <option value="none">今は予算をかけられない（無料のみ希望）</option>
           </select>
         </div>
@@ -736,6 +776,22 @@
           <textarea name="q5" required placeholder="選考の参考にさせていただきます"></textarea>
         </div>
 
+        <div class="personal-info-block">
+          <p class="block-title">Personal Information — お客様情報</p>
+          <div class="field">
+            <label>お名前 <span style="color:#8b3a3a;">*</span></label>
+            <input type="text" name="name" required placeholder="例：山田 太郎">
+          </div>
+          <div class="field">
+            <label>電話番号 <span style="color:#8b3a3a;">*</span></label>
+            <input type="tel" name="phone" required placeholder="例：090-1234-5678">
+          </div>
+          <div class="field" style="margin-bottom:0;">
+            <label>メールアドレス <span style="color:#8b3a3a;">*</span></label>
+            <input type="email" name="email" required placeholder="例：example@email.com">
+          </div>
+        </div>
+
         <button type="submit" id="submitBtn">この内容で抽選に応募する</button>
         <div id="formStatus"></div>
       </form>
@@ -748,7 +804,7 @@
     <div class="footer-links">
       <a href="#">プライバシーポリシー</a>
       <a href="#">特定商取引法に基づく表記</a>
-      <a href="mailto:beauty@ar-salon.com">お問い合わせ</a>
+      <a href="mailto:mens@ar-salon.com">お問い合わせ</a>
     </div>
     <p>© 2026 AR SALON All Rights Reserved.</p>
   </footer>
@@ -799,6 +855,9 @@
       status.style.display = 'none';
 
       const payload = {
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
         q1: form.q1.value,
         q2: form.q2.value,
         q3: form.q3.value,
