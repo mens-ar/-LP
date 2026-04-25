@@ -981,9 +981,9 @@
       status.style.display = 'none';
 
       const payload = {
-        name: form.name.value,
-        phone: form.phone.value,
-        email: form.email.value,
+        name:  form.elements['name'].value,
+        phone: form.elements['phone'].value,
+        email: form.elements['email'].value,
         q1: form.q1.value,
         q2: form.q2.value,
         q3: form.q3.value,
