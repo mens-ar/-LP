@@ -67,20 +67,44 @@
         radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%),
         linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
     }
+    .hero-staff {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 40px;
+      text-align: left;
+    }
     .hero-img {
-      display: block;
-      width: 260px;
-      height: 260px;
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
       object-fit: cover;
       border-radius: 50%;
-      margin: 32px auto 0;
       border: 1px solid var(--border);
-      opacity: 0.75;
-      -webkit-mask-image: radial-gradient(circle, black 50%, transparent 80%);
-      mask-image: radial-gradient(circle, black 50%, transparent 80%);
+      opacity: 0.9;
+      -webkit-mask-image: radial-gradient(circle, black 60%, transparent 90%);
+      mask-image: radial-gradient(circle, black 60%, transparent 90%);
     }
-    @media (max-width: 640px) {
-      .hero-img { width: 200px; height: 200px; }
+    .hero-staff-text {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      border-left: 2px solid var(--gold-dark);
+      padding-left: 16px;
+    }
+    .hero-staff-text strong {
+      display: block;
+      color: var(--gold-light);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      margin-top: 6px;
+    }
+    @media (max-width: 480px) {
+      .hero-staff { flex-direction: column; text-align: center; gap: 16px; }
+      .hero-staff-text { border-left: none; border-top: 1px solid var(--gold-dark); padding-left: 0; padding-top: 14px; }
+      .hero-img { width: 100px; height: 100px; }
     }
     #hero::before {
       content: '';
@@ -642,7 +666,13 @@
       </p>
       <a href="#apply" class="hero-cta">無料選考アンケートに応募する</a>
       <p class="hero-note">※ 完全無料 ／ 強引な勧誘は一切ありません</p>
-      <img class="hero-img" src="images/mens1.png" alt="メンズ脱毛イメージ">
+      <div class="hero-staff">
+        <img class="hero-img" src="images/mens1.png" alt="店長サイトウ">
+        <div class="hero-staff-text">
+          私がカウンセリングから施術まで担当いたします。
+          <strong>店長　サイトウ</strong>
+        </div>
+      </div>
     </div>
     <div class="scroll-indicator">SCROLL</div>
   </section>
