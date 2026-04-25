@@ -64,12 +64,23 @@
       text-align: center;
       overflow: hidden;
       background:
-        linear-gradient(180deg,
-          rgba(10,10,10,0.82) 0%,
-          rgba(10,10,10,0.55) 40%,
-          rgba(10,10,10,0.75) 75%,
-          rgba(10,10,10,0.97) 100%),
-        url('images/mens1.png') center center / cover no-repeat;
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%),
+        linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+    }
+    .hero-img {
+      display: block;
+      width: 260px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 32px auto 0;
+      border: 1px solid var(--border);
+      opacity: 0.75;
+      -webkit-mask-image: radial-gradient(circle, black 50%, transparent 80%);
+      mask-image: radial-gradient(circle, black 50%, transparent 80%);
+    }
+    @media (max-width: 640px) {
+      .hero-img { width: 200px; height: 200px; }
     }
     #hero::before {
       content: '';
@@ -631,6 +642,7 @@
       </p>
       <a href="#apply" class="hero-cta">無料選考アンケートに応募する</a>
       <p class="hero-note">※ 完全無料 ／ 強引な勧誘は一切ありません</p>
+      <img class="hero-img" src="images/mens1.png" alt="メンズ脱毛イメージ">
     </div>
     <div class="scroll-indicator">SCROLL</div>
   </section>
