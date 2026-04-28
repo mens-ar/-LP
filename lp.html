@@ -499,6 +499,34 @@
       font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
     }
 
+    .line-check-block {
+      border: 1px solid rgba(6,199,85,0.3);
+      background: rgba(6,199,85,0.05);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .line-check-block input[type="checkbox"] {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: #06C755;
+      cursor: pointer;
+    }
+    .line-check-block label {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.7;
+      cursor: pointer;
+    }
+    .line-check-block label a {
+      color: #06C755;
+      text-decoration: underline;
+    }
     #submitBtn {
       width: 100%;
       padding: 20px;
@@ -897,6 +925,13 @@
           </div>
         </div>
 
+        <div class="line-check-block">
+          <input type="checkbox" id="lineCheck" required>
+          <label for="lineCheck">
+            <a href="https://lin.ee/rFsF7PO" target="_blank" rel="noopener">LINE公式アカウント</a>を友だち追加しました（必須）
+          </label>
+        </div>
+
         <button type="submit" id="submitBtn">この内容で抽選に応募する</button>
         <div id="formStatus"></div>
       </form>
@@ -963,7 +998,7 @@
       const status = document.getElementById('formStatus');
 
       // Basic validation
-      const fields = form.querySelectorAll('[required]');
+      const fields = form.querySelectorAll('select[required], textarea[required], input[type="text"][required], input[type="tel"][required], input[type="email"][required]');
       let valid = true;
       fields.forEach(f => {
         if (!f.value.trim()) { valid = false; f.style.borderColor = '#8b3a3a'; }
@@ -972,6 +1007,12 @@
       if (!valid) {
         status.className = 'error';
         status.textContent = '未入力の項目があります。すべてご記入のうえ再度お送りください。';
+        status.style.display = 'block';
+        return;
+      }
+      if (!document.getElementById('lineCheck').checked) {
+        status.className = 'error';
+        status.textContent = 'LINE公式アカウントの友だち追加が確認できません。追加後にチェックを入れてください。';
         status.style.display = 'block';
         return;
       }
