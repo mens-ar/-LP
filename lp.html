@@ -75,17 +75,21 @@
       margin-top: 40px;
       text-align: left;
     }
-    .hero-img {
+    .hero-img-wrap {
       flex-shrink: 0;
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      object-position: center center;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
+      overflow: hidden;
       border: 1px solid var(--border);
-      opacity: 0.95;
-      -webkit-mask-image: radial-gradient(circle, black 65%, transparent 92%);
-      mask-image: radial-gradient(circle, black 65%, transparent 92%);
+      background: #fff;
+    }
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      display: block;
     }
     .hero-staff-text {
       font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
@@ -104,7 +108,7 @@
     }
     @media (max-width: 640px) {
       .hero-staff { gap: 14px; margin-top: 20px; }
-      .hero-img { width: 90px; height: 90px; }
+      .hero-img-wrap { width: 100px; height: 100px; }
       .hero-staff-text { font-size: 0.82rem; }
     }
     #hero::before {
@@ -693,7 +697,9 @@
       <a href="#apply" class="hero-cta">無料選考アンケートに応募する</a>
       <p class="hero-note">※ 完全無料 ／ 強引な勧誘は一切ありません</p>
       <div class="hero-staff">
-        <img class="hero-img" src="images/mens1.png" alt="店長サイトウ">
+        <div class="hero-img-wrap">
+          <img class="hero-img" src="images/mens1.png" alt="店長サイトウ">
+        </div>
         <div class="hero-staff-text">
           私がカウンセリングから施術まで担当いたします。
           <strong>店長　サイトウ</strong>
