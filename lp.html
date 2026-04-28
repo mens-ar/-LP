@@ -101,10 +101,10 @@
       letter-spacing: 0.08em;
       margin-top: 6px;
     }
-    @media (max-width: 480px) {
-      .hero-staff { flex-direction: column; text-align: center; gap: 16px; }
-      .hero-staff-text { border-left: none; border-top: 1px solid var(--gold-dark); padding-left: 0; padding-top: 14px; }
-      .hero-img { width: 100px; height: 100px; }
+    @media (max-width: 640px) {
+      .hero-staff { gap: 16px; margin-top: 24px; }
+      .hero-img { width: 72px; height: 72px; }
+      .hero-staff-text { font-size: 0.82rem; }
     }
     #hero::before {
       content: '';
@@ -125,9 +125,6 @@
       letter-spacing: 0.08em;
       padding: 10px 24px;
       margin-bottom: 28px;
-    }
-    @media (max-width: 640px) {
-      .hero-img { height: 200px; }
     }
     .hero-badge {
       display: inline-block;
