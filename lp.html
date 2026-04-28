@@ -1046,15 +1046,7 @@
         });
 
         // no-cors returns opaque response — treat as success if no error thrown
-        status.className = 'success';
-        status.textContent = 'ご応募ありがとうございます！3営業日以内にご連絡いたします。';
-        status.style.display = 'block';
-        form.reset();
-        form.querySelectorAll('select, textarea').forEach(f => f.style.borderColor = '');
-        btn.textContent = '応募が完了しました';
-
-        // Scroll to status message
-        status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        window.location.href = 'thanks.html';
 
       } catch (err) {
         status.className = 'error';
