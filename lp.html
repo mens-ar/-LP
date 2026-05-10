@@ -1011,6 +1011,12 @@
 
     const GAS_URL = 'https://script.google.com/macros/s/AKfycbywFOiyVoy5EvI4lWDJ6f4clxjcIrrdIs8zAzCbJFMdydPfDcMPf2zHkGLZChxRiCgB4Q/exec';
 
+    /* ----- UTM パラメーター取得 ----- */
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmSource   = urlParams.get('utm_source')   || '直接流入';
+    const utmMedium   = urlParams.get('utm_medium')   || '';
+    const utmCampaign = urlParams.get('utm_campaign') || '';
+
     /* ----- Floating CTA visibility ----- */
     const floatingCta = document.getElementById('floatingCta');
     const applySection = document.getElementById('apply');
@@ -1054,14 +1060,17 @@
       status.style.display = 'none';
 
       const payload = {
-        name:  form.elements['name'].value,
-        phone: form.elements['phone'].value,
-        email: form.elements['email'].value,
-        q1: form.q1.value,
-        q2: form.q2.value,
-        q3: form.q3.value,
-        q4: form.q4.value,
-        q5: form.q5.value,
+        name:        form.elements['name'].value,
+        phone:       form.elements['phone'].value,
+        email:       form.elements['email'].value,
+        q1:          form.q1.value,
+        q2:          form.q2.value,
+        q3:          form.q3.value,
+        q4:          form.q4.value,
+        q5:          form.q5.value,
+        utm_source:   utmSource,
+        utm_medium:   utmMedium,
+        utm_campaign: utmCampaign,
         submittedAt: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
       };
 
