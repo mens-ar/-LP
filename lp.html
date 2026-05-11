@@ -682,6 +682,82 @@
     .line-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(6,199,85,0.5); }
     .line-btn svg { flex-shrink: 0; }
 
+    /* ===== COUNTDOWN ===== */
+    .countdown-wrap {
+      margin: 28px auto 0;
+      text-align: center;
+    }
+    .countdown-label {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .countdown {
+      display: inline-flex;
+      gap: 8px;
+      align-items: flex-end;
+    }
+    .countdown-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .countdown-num {
+      background: var(--black-card);
+      border: 1px solid var(--border);
+      color: var(--gold-light);
+      font-family: 'Georgia', serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1;
+      padding: 12px 14px;
+      min-width: 64px;
+      text-align: center;
+      letter-spacing: 0.05em;
+      position: relative;
+    }
+    .countdown-num::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      top: 50%;
+      height: 1px;
+      background: rgba(201,168,76,0.15);
+    }
+    .countdown-unit {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+    }
+    .countdown-sep {
+      color: var(--gold-dark);
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      line-height: 1;
+      padding-bottom: 20px;
+      font-family: 'Georgia', serif;
+    }
+    .countdown-expired {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      padding: 16px;
+      border: 1px solid var(--border);
+    }
+    .countdown-deadline {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      letter-spacing: 0.08em;
+    }
+    .countdown-deadline span { color: var(--gold); }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 640px) {
       section { padding: 64px 0; }
@@ -722,6 +798,33 @@
         メンズ脱毛の無料体験モニターを、<strong>30名限定で募集</strong>しています。<br>
         アンケートに答えて、選考に応募してください。
       </p>
+      <!-- COUNTDOWN TIMER -->
+      <div class="countdown-wrap">
+        <p class="countdown-label">Application Deadline</p>
+        <div class="countdown" id="countdown">
+          <div class="countdown-block">
+            <div class="countdown-num" id="cd-days">00</div>
+            <div class="countdown-unit">日</div>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-block">
+            <div class="countdown-num" id="cd-hours">00</div>
+            <div class="countdown-unit">時間</div>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-block">
+            <div class="countdown-num" id="cd-mins">00</div>
+            <div class="countdown-unit">分</div>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-block">
+            <div class="countdown-num" id="cd-secs">00</div>
+            <div class="countdown-unit">秒</div>
+          </div>
+        </div>
+        <p class="countdown-deadline">募集締め切り：<span>2026年5月20日（水）23:59</span></p>
+      </div>
+
       <a href="#apply" class="hero-cta">無料選考アンケートに応募する</a>
       <p class="hero-note">※ 完全無料 ／ 強引な勧誘は一切ありません</p>
       <div class="hero-staff">
@@ -1008,6 +1111,36 @@
     window.scrollTo(0, 0);
     document.addEventListener('DOMContentLoaded', function() { window.scrollTo(0, 0); });
     window.addEventListener('load', function() { window.scrollTo(0, 0); });
+
+    /* ----- Countdown Timer ----- */
+    (function() {
+      const deadline = new Date('2026-05-20T23:59:00+09:00').getTime();
+      const daysEl  = document.getElementById('cd-days');
+      const hoursEl = document.getElementById('cd-hours');
+      const minsEl  = document.getElementById('cd-mins');
+      const secsEl  = document.getElementById('cd-secs');
+      const wrap    = document.getElementById('countdown');
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+
+      function tick() {
+        const diff = deadline - Date.now();
+        if (diff <= 0) {
+          wrap.innerHTML = '<p class="countdown-expired">募集期間は終了しました</p>';
+          return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000)  / 60000);
+        const s = Math.floor((diff % 60000)    / 1000);
+        daysEl.textContent  = pad(d);
+        hoursEl.textContent = pad(h);
+        minsEl.textContent  = pad(m);
+        secsEl.textContent  = pad(s);
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
 
     const GAS_URL = 'https://script.google.com/macros/s/AKfycbywFOiyVoy5EvI4lWDJ6f4clxjcIrrdIs8zAzCbJFMdydPfDcMPf2zHkGLZChxRiCgB4Q/exec';
 
