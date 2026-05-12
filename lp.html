@@ -1147,31 +1147,19 @@
 
     const GAS_URL = 'https://script.google.com/macros/s/AKfycbywFOiyVoy5EvI4lWDJ6f4clxjcIrrdIs8zAzCbJFMdydPfDcMPf2zHkGLZChxRiCgB4Q/exec';
 
-    /* ----- UTM パラメーター取得・sessionStorage保存 ----- */
-    (function() {
-      var params = new URLSearchParams(window.location.search);
-      // URLにUTMがあればsessionStorageに保存
-      if (params.get('utm_source'))   sessionStorage.setItem('utm_source',   params.get('utm_source'));
-      if (params.get('utm_medium'))   sessionStorage.setItem('utm_medium',   params.get('utm_medium'));
-      if (params.get('utm_campaign')) sessionStorage.setItem('utm_campaign', params.get('utm_campaign'));
-    })();
-
-    const utmSource   = new URLSearchParams(window.location.search).get('utm_source')
-                        || sessionStorage.getItem('utm_source')   || '直接流入';
-    const utmMedium   = new URLSearchParams(window.location.search).get('utm_medium')
-                        || sessionStorage.getItem('utm_medium')   || '';
-    const utmCampaign = new URLSearchParams(window.location.search).get('utm_campaign')
-                        || sessionStorage.getItem('utm_campaign') || '';
-
-    // 隠しフィールドにセット（フォーム送信時に確実に参照できる）
-    document.addEventListener('DOMContentLoaded', function() {
-      var s = document.getElementById('hidden_utm_source');
-      var m = document.getElementById('hidden_utm_medium');
-      var c = document.getElementById('hidden_utm_campaign');
-      if (s) s.value = utmSource;
-      if (m) m.value = utmMedium;
-      if (c) c.value = utmCampaign;
-    });
+    /* ----- UTM パラメーター取得 ----- */
+    var _p = new URLSearchParams(window.location.search);
+    // URLにあればsessionStorageに保存・なければsessionStorageから復元
+    if (_p.get('utm_source'))   sessionStorage.setItem('_utm_src', _p.get('utm_source'));
+    if (_p.get('utm_medium'))   sessionStorage.setItem('_utm_med', _p.get('utm_medium'));
+    if (_p.get('utm_campaign')) sessionStorage.setItem('_utm_cmp', _p.get('utm_campaign'));
+    var utmSource   = sessionStorage.getItem('_utm_src') || '直接流入';
+    var utmMedium   = sessionStorage.getItem('_utm_med') || '';
+    var utmCampaign = sessionStorage.getItem('_utm_cmp') || '';
+    // DOM構築済みなので直接セット
+    document.getElementById('hidden_utm_source').value   = utmSource;
+    document.getElementById('hidden_utm_medium').value   = utmMedium;
+    document.getElementById('hidden_utm_campaign').value = utmCampaign;
 
     /* ----- Floating CTA visibility ----- */
     const floatingCta = document.getElementById('floatingCta');
@@ -1224,9 +1212,9 @@
         q3:          form.q3.value,
         q4:          form.q4.value,
         q5:          form.q5.value,
-        utm_source:   document.getElementById('hidden_utm_source').value   || utmSource,
-        utm_medium:   document.getElementById('hidden_utm_medium').value   || utmMedium,
-        utm_campaign: document.getElementById('hidden_utm_campaign').value || utmCampaign,
+        utm_source:   document.getElementById('hidden_utm_source').value,
+        utm_medium:   document.getElementById('hidden_utm_medium').value,
+        utm_campaign: document.getElementById('hidden_utm_campaign').value,
         submittedAt: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
       };
 
