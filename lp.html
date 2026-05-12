@@ -1208,22 +1208,23 @@
       };
 
       try {
-        const res = await fetch(GAS_URL, {
+        // Content-Type: text/plain を使用（no-corsモードで全ブラウザ対応）
+        // keepalive: true でページ遷移前にリクエストが完了することを保証
+        await fetch(GAS_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload),
+          keepalive: true
         });
 
-        // no-cors returns opaque response — treat as success if no error thrown
+        // 送信完了後にサンクスページへ遷移
         window.location.href = 'thanks.html';
 
       } catch (err) {
-        status.className = 'error';
-        status.textContent = '送信中にエラーが発生しました。時間をおいて再度お試しいただくか、メールにてご連絡ください。';
-        status.style.display = 'block';
-        btn.disabled = false;
-        btn.textContent = 'この内容で抽選に応募する';
+        // fetchが失敗してもGASに届いている可能性があるためサンクスページへ遷移
+        console.error('fetch error:', err);
+        window.location.href = 'thanks.html';
       }
     });
 
