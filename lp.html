@@ -1209,7 +1209,7 @@
       btn.textContent = '送信中...';
       status.style.display = 'none';
 
-      // hidden iframeフォーム経由で送信（CORS制限なし・最確実）
+      // UTMはsessionStorageから直接取得（DOMを介さず確実に取得）
       const payload = {
         name:         form.elements['name'].value,
         phone:        form.elements['phone'].value,
@@ -1219,18 +1219,30 @@
         q3:           form.q3.value,
         q4:           form.q4.value,
         q5:           form.q5.value,
-        utm_source:   document.getElementById('hidden_utm_source').value,
-        utm_medium:   document.getElementById('hidden_utm_medium').value,
-        utm_campaign: document.getElementById('hidden_utm_campaign').value,
+        utm_source:   sessionStorage.getItem('_utm_src') || '直接流入',
+        utm_medium:   sessionStorage.getItem('_utm_med') || '',
+        utm_campaign: sessionStorage.getItem('_utm_cmp') || '',
         submittedAt:  new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
       };
 
-      document.getElementById('gas_payload').value = JSON.stringify(payload);
-      document.getElementById('gasForm').submit();
+      const payloadStr = JSON.stringify(payload);
+
+      // 送信方法1: hidden iframeフォームPOST（Chrome等・CORS制限なし）
+      try {
+        document.getElementById('gas_payload').value = payloadStr;
+        document.getElementById('gasForm').submit();
+      } catch(err) {}
+
+      // 送信方法2: fetch URLSearchParams（LINE/Metaアプリ内ブラウザ対応フォールバック）
+      try {
+        var fd = new URLSearchParams();
+        fd.append('payload', payloadStr);
+        fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: fd });
+      } catch(err) {}
 
       setTimeout(function() {
         window.location.href = 'thanks.html';
-      }, 800);
+      }, 2500);
     });
 
     /* ----- Input focus border color reset ----- */
