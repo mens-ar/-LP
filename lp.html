@@ -1219,21 +1219,20 @@
       };
 
       try {
-        // Content-Type: text/plain を使用（no-corsモードで全ブラウザ対応）
-        // keepalive: true でページ遷移前にリクエストが完了することを保証
+        // URLSearchParams形式で送信（no-corsモードで最も確実な方法）
+        const formData = new URLSearchParams();
+        formData.append('payload', JSON.stringify(payload));
+
         await fetch(GAS_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain' },
-          body: JSON.stringify(payload),
+          body: formData,
           keepalive: true
         });
 
-        // 送信完了後にサンクスページへ遷移
         window.location.href = 'thanks.html';
 
       } catch (err) {
-        // fetchが失敗してもGASに届いている可能性があるためサンクスページへ遷移
         console.error('fetch error:', err);
         window.location.href = 'thanks.html';
       }
