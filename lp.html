@@ -1108,6 +1108,12 @@
     <a href="#apply">無料で応募する ›</a>
   </div>
 
+  <!-- GAS送信用 hidden iframe + form -->
+  <iframe name="gas_iframe" style="display:none;"></iframe>
+  <form id="gasForm" method="POST" action="https://script.google.com/macros/s/AKfycbywFOiyVoy5EvI4lWDJ6f4clxjcIrrdIs8zAzCbJFMdydPfDcMPf2zHkGLZChxRiCgB4Q/exec" target="gas_iframe" style="display:none;">
+    <input type="hidden" id="gas_payload" name="payload" value="">
+  </form>
+
   <!-- JAVASCRIPT -->
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -1203,39 +1209,28 @@
       btn.textContent = '送信中...';
       status.style.display = 'none';
 
+      // hidden iframeフォーム経由で送信（CORS制限なし・最確実）
       const payload = {
-        name:        form.elements['name'].value,
-        phone:       form.elements['phone'].value,
-        email:       form.elements['email'].value,
-        q1:          form.q1.value,
-        q2:          form.q2.value,
-        q3:          form.q3.value,
-        q4:          form.q4.value,
-        q5:          form.q5.value,
+        name:         form.elements['name'].value,
+        phone:        form.elements['phone'].value,
+        email:        form.elements['email'].value,
+        q1:           form.q1.value,
+        q2:           form.q2.value,
+        q3:           form.q3.value,
+        q4:           form.q4.value,
+        q5:           form.q5.value,
         utm_source:   document.getElementById('hidden_utm_source').value,
         utm_medium:   document.getElementById('hidden_utm_medium').value,
         utm_campaign: document.getElementById('hidden_utm_campaign').value,
-        submittedAt: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
+        submittedAt:  new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
       };
 
-      try {
-        // URLSearchParams形式で送信（no-corsモードで最も確実な方法）
-        const formData = new URLSearchParams();
-        formData.append('payload', JSON.stringify(payload));
+      document.getElementById('gas_payload').value = JSON.stringify(payload);
+      document.getElementById('gasForm').submit();
 
-        await fetch(GAS_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: formData,
-          keepalive: true
-        });
-
+      setTimeout(function() {
         window.location.href = 'thanks.html';
-
-      } catch (err) {
-        console.error('fetch error:', err);
-        window.location.href = 'thanks.html';
-      }
+      }, 800);
     });
 
     /* ----- Input focus border color reset ----- */
