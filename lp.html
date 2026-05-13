@@ -1227,24 +1227,20 @@
 
       const payloadStr = JSON.stringify(payload);
 
-      // リダイレクト（1回だけ実行）
-      var _redirected = false;
-      function _goThanks() {
-        if (!_redirected) { _redirected = true; window.location.href = 'thanks.html'; }
-      }
-
-      // iframeがGASのレスポンスを受け取ったらリダイレクト
-      var _iframe = document.getElementById('gas_iframe');
-      _iframe.onload = function() { setTimeout(_goThanks, 300); };
-
-      // hidden iframeフォームPOST送信
+      // keepalive:true でページ移動後もリクエストをキャンセルしない
       try {
-        document.getElementById('gas_payload').value = payloadStr;
-        document.getElementById('gasForm').submit();
+        fetch(GAS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          keepalive: true,
+          body: new URLSearchParams({ payload: payloadStr })
+        });
       } catch(err) {}
 
-      // フォールバック：10秒待ってもiframeが応答しなければ強制移動
-      setTimeout(_goThanks, 10000);
+      // 1.5秒後にサンクスページへ（fetchはkeepAliveで継続）
+      setTimeout(function() {
+        window.location.href = 'thanks.html';
+      }, 1500);
     });
 
     /* ----- Input focus border color reset ----- */
