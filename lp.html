@@ -1226,27 +1226,25 @@
       };
 
       const payloadStr = JSON.stringify(payload);
-      var _fd = new URLSearchParams();
-      _fd.append('payload', payloadStr);
 
-      // 方法1: sendBeacon（ページ離脱後も確実送信・全ブラウザ対応）
-      var _sent = false;
+      // 方法1: Image Beacon GET（CORS完全バイパス・全ブラウザ対応）
+      // img.srcはCORS制限なし。doGetがデータを受信してシートに書く
       try {
-        if (navigator.sendBeacon) {
-          _sent = navigator.sendBeacon(GAS_URL, _fd);
-        }
+        var _img = new Image();
+        _img.src = GAS_URL + '?payload=' + encodeURIComponent(payloadStr) + '&t=' + Date.now();
       } catch(err) {}
 
-      // 方法2: hidden iframeフォームPOST（Chrome等でのバックアップ）
+      // 方法2: sendBeacon バックアップ
       try {
-        document.getElementById('gas_payload').value = payloadStr;
-        document.getElementById('gasForm').submit();
+        var _fd = new URLSearchParams();
+        _fd.append('payload', payloadStr);
+        if (navigator.sendBeacon) navigator.sendBeacon(GAS_URL, _fd);
       } catch(err) {}
 
-      // sendBeacon成功なら1秒、失敗なら4秒待ってリダイレクト
+      // 2秒後にリダイレクト（img GETは既に送信済み）
       setTimeout(function() {
         window.location.href = 'thanks.html';
-      }, _sent ? 1000 : 4000);
+      }, 2000);
     });
 
     /* ----- Input focus border color reset ----- */
