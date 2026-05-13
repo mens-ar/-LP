@@ -1227,18 +1227,18 @@
 
       const payloadStr = JSON.stringify(payload);
 
-      // 送信方法1: hidden iframeフォームPOST（Chrome等・CORS制限なし）
+      // 送信方法1: hidden iframeフォームPOST（Chrome・Safari等）
       try {
         document.getElementById('gas_payload').value = payloadStr;
         document.getElementById('gasForm').submit();
       } catch(err) {}
 
-      // 送信方法2: fetch URLSearchParams（LINE/Metaアプリ内ブラウザ対応フォールバック）
-      try {
-        var fd = new URLSearchParams();
-        fd.append('payload', payloadStr);
-        fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: fd });
-      } catch(err) {}
+      // 送信方法2: イメージビーコンGET（Edge・LINE・Metaブラウザ等 全環境対応）
+      // GETリクエストはあらゆるCORS/セキュリティ制限を通過する
+      (function() {
+        var beacon = new Image();
+        beacon.src = GAS_URL + '?payload=' + encodeURIComponent(payloadStr) + '&t=' + Date.now();
+      })();
 
       setTimeout(function() {
         window.location.href = 'thanks.html';
