@@ -1226,21 +1226,27 @@
       };
 
       const payloadStr = JSON.stringify(payload);
+      var _fd = new URLSearchParams();
+      _fd.append('payload', payloadStr);
 
-      // keepalive:true でページ移動後もリクエストをキャンセルしない
+      // 方法1: sendBeacon（ページ離脱後も確実送信・全ブラウザ対応）
+      var _sent = false;
       try {
-        fetch(GAS_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          keepalive: true,
-          body: new URLSearchParams({ payload: payloadStr })
-        });
+        if (navigator.sendBeacon) {
+          _sent = navigator.sendBeacon(GAS_URL, _fd);
+        }
       } catch(err) {}
 
-      // 1.5秒後にサンクスページへ（fetchはkeepAliveで継続）
+      // 方法2: hidden iframeフォームPOST（Chrome等でのバックアップ）
+      try {
+        document.getElementById('gas_payload').value = payloadStr;
+        document.getElementById('gasForm').submit();
+      } catch(err) {}
+
+      // sendBeacon成功なら1秒、失敗なら4秒待ってリダイレクト
       setTimeout(function() {
         window.location.href = 'thanks.html';
-      }, 1500);
+      }, _sent ? 1000 : 4000);
     });
 
     /* ----- Input focus border color reset ----- */
